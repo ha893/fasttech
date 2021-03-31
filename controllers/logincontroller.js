@@ -8,7 +8,7 @@ var VerifyToken = require('./authorize');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-
+//user sign in to create jwt token with the help of correct email and password
 router.post('/login', function(req, res) {
 
     var email = User.findOne({ email: req.body.email,password: req.body.password }, function (err, user) {

@@ -8,7 +8,7 @@ var VerifyToken = require('./authorize');
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 
-
+//Get the user with specific token
 router.get('/me', VerifyToken, function(req, res, next) {
 
     User.findById(req.userId, { password: 0 }, function (err, user) {
@@ -19,7 +19,7 @@ router.get('/me', VerifyToken, function(req, res, next) {
   
   });
 
-
+  //Updating users first and last name based on jwt authentcation
   router.put('/:id', VerifyToken, function(req, res, next) {
 
     User.findByIdAndUpdate(req.params.id, req.body, {new: true}, function (err, user) {

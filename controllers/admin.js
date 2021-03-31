@@ -7,11 +7,9 @@ var responseGenerator = require('../responsegenerator');
 router.use(bodyParser.urlencoded({ extended: true }));
 
 
-
+//REdaing all the user tickets
 router.get('/tickets', function (req, res) {
-    Ticket.find({
-        userid: req.body.userid
-    }, function (err, result) {
+    Ticket.find({}, function (err, result) {
         if (err) {
             var response = responseGenerator.generate(true, "Some error", 400, null);
             res.send(response);

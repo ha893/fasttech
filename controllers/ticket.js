@@ -6,7 +6,7 @@ var random = require('randomstring');
 var responseGenerator = require('../responsegenerator');
 router.use(bodyParser.urlencoded({ extended: true }));
 
-
+//Creating the user tickets
 router.post('/create', function (req, res) {
 
     var newTicket = new Ticket({
